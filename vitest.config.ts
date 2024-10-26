@@ -5,9 +5,11 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "jsdom",
+    include: ["**/*.{test,spec}.?(c|m)[jt]s?(x)"],
+    exclude: ["**/node_modules/**", "**/dist/**"],
     coverage: {
       provider: "v8",
-      extension: [".tsx"],
+      extension: [".js", ".jsx", ".ts", ".tsx"],
       reporter: ['text', 'json-summary', 'json'],
     },
   },
